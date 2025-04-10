@@ -1,0 +1,34 @@
+.people-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .people-table th,
+  .people-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .people-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .people-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .people-table button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .people-table button:hover {
+    background-color: #e0e0e0;
+  }
+  

@@ -1,9 +1,15 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { importProvidersFrom } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+import { PeopleListComponent } from './people-list/people-list.component';
+import { EditPersonComponent } from './edit-person/edit-person.component';
 
-import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-
-export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay())]
+export const appConfig = {
+  providers: [
+    provideHttpClient(),
+    provideRouter([
+      { path: '', component: PeopleListComponent },
+      { path: 'edit/:id', component: EditPersonComponent }
+    ]),
+  ]
 };

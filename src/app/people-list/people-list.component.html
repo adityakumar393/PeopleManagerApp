@@ -1,0 +1,41 @@
+<h2>People List</h2>
+
+<table class="people-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of people">
+      <td>{{ person.id }}</td>
+      
+      <td *ngIf="editingPersonId === person.id">
+        <input [(ngModel)]="editedPerson.name" />
+      </td>
+      <td *ngIf="editingPersonId !== person.id">
+        {{ person.name }}
+      </td>
+      
+      <td *ngIf="editingPersonId === person.id">
+        <input [(ngModel)]="editedPerson.email" />
+      </td>
+      <td *ngIf="editingPersonId !== person.id">
+        {{ person.email }}
+      </td>
+
+      <td>
+        <ng-container *ngIf="editingPersonId === person.id; else editDeleteButtons">
+          <button (click)="savePerson(person.id)">Save</button>
+        </ng-container>
+        <ng-template #editDeleteButtons>
+          <button (click)="editPerson(person.id)">Edit</button>
+          <button (click)="deletePerson(person.id)">Delete</button>
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>
